@@ -1,0 +1,23 @@
+.footer {
+    background-color: map.get($theme-colors, "primary");
+    color: white;
+    font-size: 12px;
+    i{
+        color: white;
+    }
+    h5{
+        font-size: 1rem;
+    }
+    a.nav-link {
+        color: white;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    &__newsletter {
+
+    }
+    &__social{
+        font-size: 1.25rem;
+    }
+}
