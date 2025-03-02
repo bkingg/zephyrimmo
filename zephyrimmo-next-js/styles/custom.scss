@@ -1,7 +1,7 @@
 @use "sass:map";
 
 $theme-colors: (
-  'primary': #009999,
+  'primary': #384074,
   'secondary': #ffffff,
   'success': #22e11c,
   'info': #d9ff50,
@@ -15,6 +15,8 @@ $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
+
+$border-radius: 0;
 
 @import "mixins";
 @import "bootstrap/scss/bootstrap.scss";

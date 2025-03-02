@@ -95,14 +95,25 @@ export default async function Navigation() {
     <Navbar expand="sm" fixed="top" className="header" variant="dark">
       <Container>
         <NavbarBrand href="/">
-          <Image
-            src={urlFor(siteSettings.logo).url()}
-            width={200}
-            height={60}
-            alt="Hepo Dakar"
-            title="Hepo Dakar"
-            className="img-fluid logo"
-          />
+          <div 
+            className="position-relative" 
+            style={{ 
+              width: "216px",
+              height: "200px", 
+              maxHeight: "100px" 
+            }}>
+            <Image
+              src={urlFor(siteSettings.logo).width(200).url()}
+              fill
+              alt="Hepo Dakar"
+              title="Hepo Dakar"
+              className="img-fluid logo"
+              style={{
+                objectFit: "contain",
+                objectPosition: "left",
+              }}
+            />
+          </div>
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">

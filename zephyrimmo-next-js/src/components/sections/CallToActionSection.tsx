@@ -18,9 +18,9 @@ export default function CallToActionSection({
   return (
     <section
       style={{
-        backgroundColor: "rgba(0,153,153, 1)",
+        backgroundColor: "rgba(56, 64, 116, 1)",
         backgroundImage: urlFor(section.image).width(700).url()
-          ? `linear-gradient(to top, rgba(0,153,153, 0.7), rgba(0,153,153, 1) 95%), url(${urlFor(section.image).width(700).url()})`
+          ? `linear-gradient(to top, rgba(56, 64, 116, 0.7), rgba(56, 64, 116, 1) 95%), url(${urlFor(section.image).width(700).url()})`
           : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",

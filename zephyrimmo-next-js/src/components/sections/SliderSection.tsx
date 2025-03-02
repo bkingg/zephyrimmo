@@ -26,7 +26,7 @@ interface Slide {
 export default function SliderSection({ slides }: SliderSectionProps) {
   return (
     <section className="section__slider">
-      <Carousel interval={1000}>
+    <Carousel interval={1000}>
         {slides.map((slide: Slide) => {
           const slideImageUrl = slide.image
             ? urlFor(slide.image).size(1200, 500).fit("crop").url()
@@ -38,7 +38,7 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                 width={1200}
                 height={500}
                 alt={slide.title}
-                className="d-block w-100 img-fluid"
+                className="d-block w-100 img-fluid carousel-image"
               />
               {(slide.title || slide.description) && (
                 <CarouselCaption className={slide.captionPosition}>

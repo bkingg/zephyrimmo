@@ -1,27 +1,17 @@
 .section__slider{
-    background-color: rgba(0, 0, 0, 0.5); 
-    &:after{
-        // content: ' ';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.5); 
-        z-index: 1;
-
+    .carousel-image{
+        filter: brightness(70%);
     }
     .carousel-caption{ 
         
         h3{
             text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
             font-size: 40px;
+            color: map.get($theme-colors, 'light');
         }
         
         p{
-            color: #ffffff;
+            color: map.get($theme-colors, 'light');
             display: none;
         }
 
@@ -53,7 +43,7 @@
                 }
             }
             h3{
-                color: map.get($theme-colors, 'primary');
+                color: map.get($theme-colors, 'light');
                 text-shadow: none;
             }
             p{

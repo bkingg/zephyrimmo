@@ -66,9 +66,9 @@ export default async function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "rgba(0,153,153, 1)",
+        backgroundColor: "rgba(56, 64, 116, 1)",
         backgroundImage: siteSettings.footerBgImage
-          ? `linear-gradient(to top, rgba(0,153,153, 0.7), rgba(0,153,153, 1) 95%), url(${urlFor(siteSettings.footerBgImage).width(800).url()})`
+          ? `linear-gradient(to top, rgba(56, 64, 116, 0.7), rgba(56, 64, 116, 1) 95%), url(${urlFor(siteSettings.footerBgImage).width(800).url()})`
           : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",
