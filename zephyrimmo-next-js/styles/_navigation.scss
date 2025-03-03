@@ -23,7 +23,7 @@
         }
       }
       .dropdown-menu {
-        background-color: rgba(map.get($theme-colors, "light"), 0.8);
+        background-color: map.get($theme-colors, "light");
         .nav-link {
           color: map.get($theme-colors, "primary");
           &:hover,

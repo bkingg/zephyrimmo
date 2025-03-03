@@ -70,7 +70,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         <div className="row row-cols-2 row-cols-md-3 row-cols-md-5 justify-content-center">
           {projet.proprietes.map((propriete) => {
             return (
-              <div className="col">
+              <div key={propriete._key} className="col">
                 <div className="d-flex">
                   {propriete.icon?.name && (
                     <Icon
@@ -93,7 +93,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         <div className="row">
           {projet.gallery.map((image) => {
             return (
-              <div className="col-sm-6">
+              <div key={image._key} className="col-sm-6">
                 <Image
                   key={image._key}
                   src={urlFor(image.asset).width(1000).url()}
