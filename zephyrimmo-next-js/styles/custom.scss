@@ -1,14 +1,14 @@
 @use "sass:map";
 
 $theme-colors: (
-  'primary': #384074,
-  'secondary': #ffffff,
-  'success': #22e11c,
-  'info': #d9ff50,
-  'warning': #ffbe0b,
-  'danger': #ff0000,
-  'light': #ffffff,
-  'dark': #000103,
+  "primary": #384074,
+  "secondary": #ffffff,
+  "success": #22e11c,
+  "info": #d9ff50,
+  "warning": #ffbe0b,
+  "danger": #ff0000,
+  "light": #ffffff,
+  "dark": #000103,
 );
 
 $sm: 576px;
@@ -38,39 +38,44 @@ $border-radius: 0;
 //     outline: 1px red dotted;
 // }
 
-body{
-    font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 
 .page__header {
-    position: relative;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    color: #fff;
-    text-align: center;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: map.get($theme-colors, "light");
 }
 
-.section{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    h1:first-of-type, h1:first-of-type + p{
-        text-align: center;
-    }
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  h1:first-of-type,
+  h1:first-of-type + p {
+    text-align: center;
+  }
 }
 
 .btn {
-    font-size: 14px;
+  font-size: 14px;
 }
 .btn-primary {
-    color: #ffffff;
+  color: map.get($theme-colors, "light");
 }
 
 .form-control {
-    // border-radius: 1.75rem;
+  // border-radius: 1.75rem;
 }

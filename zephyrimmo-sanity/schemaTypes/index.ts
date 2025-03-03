@@ -5,6 +5,7 @@ import pageType from "./pageType";
 import articleType from "./articleType";
 import serviceType from "./serviceType";
 import textWithLinksBlock from "./textWithLinksBlock";
+import projetType from "./projetType";
 
 // Sections
 import latestArticlesSection from "./latestArticlesSection";
@@ -16,13 +17,15 @@ import servicesSection from "./servicesSection";
 import faqSection from "./faqSection";
 import mediaTextSection from "./mediaTextSection";
 
+
 export const schemaTypes = [
-    siteSettings,
     menuType,
     menuItemType,
     pageType,
     serviceType,
+    projetType,
     articleType,
+    siteSettings,
     
     // Sections
     richTextSection,

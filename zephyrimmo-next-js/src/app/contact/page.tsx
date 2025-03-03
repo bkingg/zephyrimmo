@@ -37,9 +37,7 @@ export default async function Contact() {
   return (
     <>
       <PageHeader image={contactPageImageUrl}>
-        <h1 className="page__title text-center">
-          {siteSettings.contactPageTitle}
-        </h1>
+        <h1 className="page__title">{siteSettings.contactPageTitle}</h1>
       </PageHeader>
       <div>
         {siteSettings.showMap && (

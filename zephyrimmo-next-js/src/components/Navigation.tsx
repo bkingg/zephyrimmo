@@ -92,16 +92,10 @@ export default async function Navigation() {
     });
   };
   return (
-    <Navbar expand="sm" fixed="top" className="header" variant="dark">
+    <Navbar expand="sm" className="header" variant="dark">
       <Container>
         <NavbarBrand href="/">
-          <div 
-            className="position-relative" 
-            style={{ 
-              width: "216px",
-              height: "200px", 
-              maxHeight: "100px" 
-            }}>
+          <div className="header__logo-wrapper">
             <Image
               src={urlFor(siteSettings.logo).width(200).url()}
               fill

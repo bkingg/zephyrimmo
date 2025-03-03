@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
-
+import { headers } from "next/headers";
+import { pathname } from "next-extra/pathname";
+import { Montserrat } from "next/font/google";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../../styles/globals.css";
 import "../../styles/custom.scss";
@@ -17,18 +18,22 @@ export const metadata: Metadata = {
     template: "%s | Zephyr Immo",
     default: "Zephyr Immo",
   },
-  description:
-    "Zephyr Immo est une entreprise Immobiliere",
+  description: "Zephyr Immo est une entreprise Immobiliere",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { slug: string };
 }>) {
+  const pathNameString = await pathname();
+  console.log("pathNameString", pathNameString);
+  const pageClass = `page${pathNameString != "/" ? pathNameString.replaceAll("/", "__") : "__home"}`;
   return (
     <html lang="fr">
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className} ${pageClass}`}>
         <Header />
         <main>{children}</main>
         <Footer />

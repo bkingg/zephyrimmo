@@ -6,7 +6,6 @@
         
         h3{
             text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-            font-size: 40px;
             color: map.get($theme-colors, 'light');
         }
         
@@ -43,6 +42,7 @@
                 }
             }
             h3{
+                font-size: 40px;
                 color: map.get($theme-colors, 'light');
                 text-shadow: none;
             }

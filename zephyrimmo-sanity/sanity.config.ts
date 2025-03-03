@@ -4,6 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {frFRLocale} from '@sanity/locale-fr-fr'
 import {tags} from 'sanity-plugin-tags'
+import { iconPicker } from 'sanity-plugin-icon-picker';
 
 
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
   projectId: 'nb0q6w1h',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool(), frFRLocale(), tags({})],
+  plugins: [structureTool(), visionTool(), frFRLocale(), tags({}), iconPicker()],
 
   schema: {
     types: schemaTypes,

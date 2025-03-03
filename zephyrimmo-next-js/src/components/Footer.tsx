@@ -124,7 +124,7 @@ export default async function Footer() {
             <form>
               <div className="row d-flex align-items-center">
                 <h5 className={playfairDisplay.className}>Newsletter</h5>
-                <p className="mb-0">Résumé mensuel de nos activités</p>
+                <p>Résumé mensuel de nos activités</p>
                 <div className="d-flex flex-column flex-sm-row w-100 gap-2">
                   <label htmlFor="newsletter1" className="visually-hidden">
                     Adresse Email
