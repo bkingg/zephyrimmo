@@ -4,18 +4,33 @@
   padding: 0;
   &__logo-wrapper {
     position: relative;
-    width: 216px;
-    height: 200px;
-    max-height: 100px;
+    width: 150px;
+    height: 100px;
+    max-height: 60px;
+  }
+  #basic-navbar-nav {
+    padding-right: 150px;
+  }
+  .nav-link {
+    height: 100%;
   }
   @include media-breakpoint-up(sm) {
-    position: static;
+    &__logo-wrapper {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      max-height: 60px;
+    }
+    #basic-navbar-nav {
+      padding-right: 150px;
+    }
+    position: sticky;
+    z-index: 1;
     .page__home & {
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      z-index: 1030;
       .navbar-nav > .nav-item > .nav-link,
       .navbar-nav > .nav-link {
         span:after {
@@ -52,10 +67,10 @@
     }
     .navbar-nav > .nav-item > .nav-link,
     .navbar-nav > .nav-link {
-      line-height: 40px;
-      padding: 20px 15px;
+      line-height: 30px;
+      padding: 15px;
       text-transform: uppercase;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
 
       span:after {
@@ -151,6 +166,15 @@
       padding-right: 216px;
     }
   }
+
+  @include media-breakpoint-up(md) {
+    .header__logo-wrapper {
+      width: 216px;
+      height: 200px;
+      max-height: 100px;
+    }
+  }
+
   @include media-breakpoint-down(sm) {
     position: sticky;
     background-color: map.get($theme-colors, "light");

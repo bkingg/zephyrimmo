@@ -7,6 +7,12 @@ import urlFor from "@/lib/urlFor";
 import { notFound } from "next/navigation";
 import Sections from "@/components/sections/Sections";
 import { Metadata, ResolvingMetadata } from "next";
+import { Playfair_Display } from "next/font/google";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const PAGE_QUERY = groq`
@@ -32,7 +38,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <PageHeader image={page.imageUrl}>
-        {page.title && <h1 className="page__title">{page.title}</h1>}
+        {page.title && (
+          <h1 className={`page__title ${playfairDisplay.className}`}>
+            {page.title}
+          </h1>
+        )}
         {page.description && <p>{page.description}</p>}
       </PageHeader>
       {page.sections && <Sections sections={page.sections} />}

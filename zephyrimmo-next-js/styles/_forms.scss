@@ -1,37 +1,37 @@
 .register-to-program__form,
-.contact__form{
-    border-radius: 1.75rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 40px 30px;
-    input, textarea, select, 
-    .react-tel-input input, 
-    .react-tel-input .form-control{
-        background-color: #f7f7f7;
-        border: none;
-        padding: 10px 20px;
-        text-overflow: ellipsis;
-    }
-    .react-tel-input {
-        font-family: inherit;
+.contact__form {
+  input,
+  textarea,
+  select,
+  .react-tel-input input,
+  .react-tel-input .form-control {
+    border: none;
+    padding: 10px 20px;
+    text-overflow: ellipsis;
+  }
+  .react-tel-input {
+    font-family: inherit;
 
-        input, .form-control{
-            padding-left: 54px;
-            font-size: 1rem;
-            background-color: #f7f7f7;
-            border: none;
-            border-radius: 1.75rem;
-            width: 100%;
-        }
-        .flag-dropdown{
-            &, &.open, .open, .selected-flag{
-                border-radius: 1.75rem 0 0 1.75rem !important;
-            }
-            .country-list {
-                text-align: left;
-            }
-        }
+    input,
+    .form-control {
+      padding-left: 54px;
+      font-size: 1rem;
+      border: none;
+      width: 100%;
     }
-    .is-invalid .react-tel-input ~ .invalid-feedback{
-        display: block;
+    .flag-dropdown {
+      &,
+      &.open,
+      .open,
+      .selected-flag {
+        // border-radius: 0.5rem 0 0 0.5rem !important;
+      }
+      .country-list {
+        text-align: left;
+      }
     }
+  }
+  .is-invalid .react-tel-input ~ .invalid-feedback {
+    display: block;
+  }
 }

@@ -51,6 +51,11 @@ h6 {
   font-weight: 600;
 }
 
+h1 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 .page__header {
   position: relative;
   padding-top: 80px;
@@ -63,10 +68,6 @@ h6 {
   padding-bottom: 40px;
   margin-bottom: 20px;
   margin-top: 20px;
-  h1:first-of-type,
-  h1:first-of-type + p {
-    text-align: center;
-  }
 }
 
 .btn {
@@ -78,4 +79,12 @@ h6 {
 
 .form-control {
   // border-radius: 1.75rem;
+}
+
+* {
+  outline: 1px red dotted;
+}
+
+.playfair-display {
+  font-family: var(--font-playfair-display); // Uses the Playfair Display font
 }

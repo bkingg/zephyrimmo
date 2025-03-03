@@ -1,30 +1,25 @@
 .contact {
-    &__info{
-        border-radius: 1.75rem;
-        background-color: #f7f7f7;
-        border: none;
-        .card-header {
-            border-radius: 50%;
-            color: #fff;
-            background-color: map.get($theme-colors, 'primary');
-            padding: 25px;
-            margin-right: 30px;
-            i{
-                font-size: 40px;
-                width: 40px;
-                height: 40px;
-                line-height: 40px;
-            }
-        }
+  &__info {
+    border: none;
+    .card-header {
+      color: #fff;
+      background-color: map.get($theme-colors, "primary");
+      padding: 25px;
+      margin-right: 30px;
+      i {
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+      }
     }
-    &__form{
-        border-radius: 1.75rem;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        padding: 40px 30px;
-        input, textarea, select{
-            background-color: #f7f7f7;
-            border: none;
-            padding: 10px 20px;
-        }
+  }
+  &__form {
+    input,
+    textarea,
+    select {
+      border: none;
+      padding: 10px 20px;
     }
+  }
 }

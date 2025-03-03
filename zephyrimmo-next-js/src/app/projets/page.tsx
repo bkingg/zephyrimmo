@@ -3,6 +3,12 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import ProjetCard from "@/components/ProjetCard";
+import { Playfair_Display } from "next/font/google";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const PROJETS_QUERY = groq`*[
   _type == "projet"
@@ -18,14 +24,12 @@ export default async function Actualites() {
   return (
     <>
       <PageHeader>
-        <h1 className="page__title">Projets</h1>
+        <h1 className={`page__title ${playfairDisplay.className}`}>Projets</h1>
       </PageHeader>
       <div className="section">
         <div className="container">
-          <div className="row row-cols-1 row-cols-md-3 row-cols-xl-4">
-            {projets.length === undefined && (
-              <p>Aucun Projet disponible.</p>
-            )}
+          <div className="row row-cols-1 row-cols-md-2">
+            {projets.length === undefined && <p>Aucun Projet disponible.</p>}
             {projets.map((projet) => {
               return <ProjetCard key={projet._id} projet={projet} />;
             })}

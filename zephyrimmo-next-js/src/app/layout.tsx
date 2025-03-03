@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { pathname } from "next-extra/pathname";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../../styles/globals.css";
 import "../../styles/custom.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700"], // Add the required weights
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {

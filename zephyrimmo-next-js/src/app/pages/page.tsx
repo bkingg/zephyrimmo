@@ -34,7 +34,7 @@ export default async function Pages() {
   return (
     <>
       <PageHeader>
-        <h1 className="page__title">Pages</h1>
+        <h1 className={`page__title ${playfairDisplay.className}`}>Pages</h1>
       </PageHeader>
       <div className="section container">
         <div className="row">

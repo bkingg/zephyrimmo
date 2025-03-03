@@ -8,6 +8,25 @@ import { ResolvingMetadata, Metadata } from "next";
 import Image from "next/image";
 import { Playfair_Display } from "next/font/google";
 import { Icon } from "@iconify/react";
+import React from "react";
+import Slider from "react-slick";
+import GallerySlider from "@/components/GallerySlider";
+
+interface Propriete {
+  _key: string;
+  title: string;
+  subtitle: string;
+  icon: {
+    name: string;
+    provider: string;
+  };
+}
+
+interface ImageObject {
+  _key: string;
+  asset: string;
+  alt: string;
+}
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -66,9 +85,9 @@ export default async function Projet({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container section">
         <div className="row row-cols-2 row-cols-md-3 row-cols-md-5 justify-content-center">
-          {projet.proprietes.map((propriete) => {
+          {projet.proprietes.map((propriete: Propriete) => {
             return (
               <div key={propriete._key} className="col">
                 <div className="d-flex">
@@ -89,26 +108,14 @@ export default async function Projet({ params }: { params: { slug: string } }) {
           })}
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          {projet.gallery.map((image) => {
-            return (
-              <div key={image._key} className="col-sm-6">
-                <Image
-                  key={image._key}
-                  src={urlFor(image.asset).width(1000).url()}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "100%", height: "auto" }}
-                  alt={image.alt}
-                  title={image.alt}
-                  className="card-img-top"
-                />
-              </div>
-            );
+
+      <div className="section">
+        <GallerySlider
+          gallery={projet.gallery.map((image: ImageObject) => {
+            image.asset = `${urlFor(image.asset).size(500, 700).fit("crop").url()}`;
+            return image;
           })}
-        </div>
+        />
       </div>
     </>
   );
