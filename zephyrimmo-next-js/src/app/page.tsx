@@ -13,6 +13,9 @@ export default async function Home() {
       "brochureUrl": brochure.asset->url,
       services[]->{
         _id, title, slug, image
+      },
+      projets[]->{
+        _id, title, slug, image
       }
     },
   }`;

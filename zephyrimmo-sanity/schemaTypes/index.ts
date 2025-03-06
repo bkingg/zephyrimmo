@@ -14,6 +14,7 @@ import sliderSection from "./sliderSection";
 import logoListSection from "./logoListSection";
 import callToActionSection from "./callToActionSection";
 import servicesSection from "./servicesSection";
+import projetsSection from "./projetsSection";
 import faqSection from "./faqSection";
 import mediaTextSection from "./mediaTextSection";
 
@@ -36,5 +37,6 @@ export const schemaTypes = [
     textWithLinksBlock,
     callToActionSection,
     servicesSection,
+    projetsSection,
     mediaTextSection
 ]
