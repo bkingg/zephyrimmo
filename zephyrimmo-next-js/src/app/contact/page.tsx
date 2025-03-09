@@ -4,12 +4,6 @@ import urlFor from "@/lib/urlFor";
 import { sanityFetch } from "@/sanity/client";
 import { Metadata } from "next";
 import { groq, PortableText, SanityDocument } from "next-sanity";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -43,9 +37,7 @@ export default async function Contact() {
   return (
     <>
       <PageHeader image={contactPageImageUrl}>
-        <h1 className={`page__title ${playfairDisplay.className}`}>
-          {siteSettings.contactPageTitle}
-        </h1>
+        <h1 className="page__title">{siteSettings.contactPageTitle}</h1>
       </PageHeader>
       <div className="section container">
         {siteSettings.showMap && (
@@ -72,7 +64,7 @@ export default async function Contact() {
             )}
             <div className="text-center">
               <div className="card-block px-2">
-                <div className={`${playfairDisplay.className}`}>
+                <div className="vidaloka">
                   <PortableText value={siteSettings.address} />
                 </div>
               </div>

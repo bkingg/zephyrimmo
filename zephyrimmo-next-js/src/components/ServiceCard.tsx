@@ -1,12 +1,6 @@
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 interface ServiceCardProps {
   service: Service | SanityDocument;
@@ -39,7 +33,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             className="card-img-top"
           />
           <div className="card-body">
-            <h5 className={`${playfairDisplay.className} card-title`}>{service.title}</h5>
+            <h5 className="vidaloka card-title">{service.title}</h5>
             {/* <p className="card-text">
                       lorem ipsum dolor sit amet
                     </p> */}

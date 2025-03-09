@@ -15,7 +15,7 @@ export default async function Home() {
         _id, title, slug, image
       },
       projets[]->{
-        _id, title, slug, image
+        _id, title, ville, slug, image
       }
     },
   }`;

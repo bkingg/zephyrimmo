@@ -3,12 +3,6 @@ import { groq, SanityDocument } from "next-sanity";
 import ServiceCard from "../ServiceCard";
 import Link from "next/link";
 import urlFor from "@/lib/urlFor";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 interface ServicesSectionProps {
   section: any;
@@ -29,7 +23,9 @@ export default async function ServicesSection({
   return (
     <section className="section section__actualites">
       <div className="container">
-        {section.title && <h1 className={`${playfairDisplay.className} text-center`}>{section.title}</h1>}
+        {section.title && (
+          <h1 className="vidaloka text-center">{section.title}</h1>
+        )}
         {section.description && (
           <p className="text-center">{section.description}</p>
         )}

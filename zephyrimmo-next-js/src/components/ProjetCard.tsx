@@ -1,13 +1,7 @@
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
 import urlFor from "@/lib/urlFor";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 interface ProjetCardProps {
   projet: Projet | SanityDocument;
@@ -16,6 +10,7 @@ interface ProjetCardProps {
 interface Projet {
   _id: string;
   title: string;
+  ville: string;
   slug: { current: string };
   image: string;
   imageUrl: string;
@@ -23,8 +18,8 @@ interface Projet {
 
 export default function ProjetCard({ projet }: ProjetCardProps) {
   projet.imageUrl = projet.image
-      ? urlFor(projet.image).size(500, 500).fit("crop").url()
-      : "";
+    ? urlFor(projet.image).size(500, 500).fit("crop").url()
+    : "";
   return (
     <>
       <Link
@@ -43,13 +38,8 @@ export default function ProjetCard({ projet }: ProjetCardProps) {
             className="card-img-top"
           />
           <div className="card-body">
-            <h5 className={`${playfairDisplay.className} card-title`}>{projet.title}</h5>
-            {/* <p className="card-text">
-                      lorem ipsum dolor sit amet
-                    </p> */}
-            <button className="btn btn-light">
-              <i className="bi bi-arrow-right"></i>
-            </button>
+            <h5 className="vidaloka card-title">{projet.title}</h5>
+            <p className="card-text">{projet.ville}</p>
           </div>
         </div>
       </Link>

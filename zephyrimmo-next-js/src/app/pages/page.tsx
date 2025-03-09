@@ -4,12 +4,6 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const PAGES_QUERY = groq`*[
   _type == "page"
@@ -34,7 +28,7 @@ export default async function Pages() {
   return (
     <>
       <PageHeader>
-        <h1 className={`page__title ${playfairDisplay.className}`}>Pages</h1>
+        <h1 className="page__title">Pages</h1>
       </PageHeader>
       <div className="section container">
         <div className="row">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { pathname } from "next-extra/pathname";
-import { Montserrat, Playfair_Display } from "next/font/google";
+import { Montserrat, Playfair_Display, Vidaloka } from "next/font/google";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../../styles/globals.css";
 import "../../styles/custom.scss";
@@ -12,12 +12,14 @@ import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"], // Add the required weights
+  weight: ["400", "700"],
+  variable: "--font-montserrat",
 });
 
-const playfairDisplay = Playfair_Display({
+const vidaloka = Vidaloka({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
+  variable: "--font-vidaloka",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +41,7 @@ export default async function RootLayout({
   console.log("pathNameString", pathNameString);
   const pageClass = `page${pathNameString != "/" ? pathNameString.replaceAll("/", "__") : "__home"}`;
   return (
-    <html lang="fr">
+    <html lang="fr" className={vidaloka.variable}>
       <body className={`${montserrat.className} ${pageClass}`}>
         <Header />
         <main>{children}</main>

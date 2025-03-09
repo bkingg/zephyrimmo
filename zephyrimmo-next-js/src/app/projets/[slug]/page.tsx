@@ -6,7 +6,6 @@ import PageHeader from "@/components/PageHeader";
 import { notFound } from "next/navigation";
 import { ResolvingMetadata, Metadata } from "next";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
 import { Icon } from "@iconify/react";
 import React from "react";
 import Slider from "react-slick";
@@ -27,11 +26,6 @@ interface ImageObject {
   asset: string;
   alt: string;
 }
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 let projet: SanityDocument;
 let projetImageUrl: string;
@@ -76,9 +70,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         <div className="row">
           <div className="col-sm-6">
             <p>{projet.ville}</p>
-            <h1 className={`${playfairDisplay.className} text-start`}>
-              {projet.title}
-            </h1>
+            <h1 className="vidaloka text-start">{projet.title}</h1>
           </div>
           <div className="col-sm-6">
             <p>{projet.description}</p>

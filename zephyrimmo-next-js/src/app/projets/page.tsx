@@ -3,18 +3,12 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import ProjetCard from "@/components/ProjetCard";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const PROJETS_QUERY = groq`*[
   _type == "projet"
   && defined(slug.current)
 ] | order(_createdAt desc)
-{_id, title, slug, image, description}`;
+{_id, title, ville, slug, image, description}`;
 
 export default async function Actualites() {
   const projets = await sanityFetch<SanityDocument[]>({
@@ -24,7 +18,7 @@ export default async function Actualites() {
   return (
     <>
       <PageHeader>
-        <h1 className={`page__title ${playfairDisplay.className}`}>Projets</h1>
+        <h1 className="page__title">Projets</h1>
       </PageHeader>
       <div className="section">
         <div className="container">

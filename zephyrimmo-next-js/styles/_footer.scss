@@ -1,23 +1,29 @@
 .footer {
-    background-color: map.get($theme-colors, "primary");
+  background-color: map.get($theme-colors, "primary");
+  color: white;
+  i {
     color: white;
-    font-size: 12px;
-    i{
-        color: white;
+  }
+  .nav-item {
+    margin-bottom: 30px;
+  }
+  a.nav-link {
+    color: white;
+    &:hover {
+      text-decoration: underline;
     }
-    h5{
-        font-size: 1rem;
+  }
+  &__heading {
+    font-family: var(--font-vidaloka);
+    @include media-breakpoint-up(sm) {
+      font-size: 22px;
+      text-transform: uppercase;
+      margin-bottom: 35px;
     }
-    a.nav-link {
-        color: white;
-        &:hover{
-            text-decoration: underline;
-        }
-    }
-    &__newsletter {
-
-    }
-    &__social{
-        font-size: 1.25rem;
-    }
+  }
+  &__newsletter {
+  }
+  &__social {
+    font-size: 1.25rem;
+  }
 }

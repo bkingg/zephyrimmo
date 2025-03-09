@@ -1,12 +1,6 @@
 import urlFor from "@/lib/urlFor";
-import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 interface CallToActionSectionProps {
   section: any;
@@ -29,7 +23,7 @@ export default function CallToActionSection({
       className="section text-center bg-primary text-light section__cta my-0"
     >
       <div className="container">
-        {section.title && <h1 className={playfairDisplay.className}>{section.title}</h1>}
+        {section.title && <h1 className="vidaloka">{section.title}</h1>}
         {section.description && <p>{section.description}</p>}
         {section.ctaText &&
           ((section.ctaUrl && (

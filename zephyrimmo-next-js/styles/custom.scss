@@ -26,6 +26,7 @@ $border-radius: 0;
 @import "footer";
 @import "programmes";
 @import "article";
+@import "projet";
 @import "contact";
 @import "loader";
 @import "forms";
@@ -49,6 +50,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  line-height: 1.2;
 }
 
 h1 {
@@ -56,11 +58,36 @@ h1 {
   text-transform: uppercase;
 }
 
+p {
+  line-height: 1.86;
+  @include media-breakpoint-up(sm) {
+    font-size: 15px;
+  }
+}
+
+.page__title {
+  font-family: var(--font-vidaloka);
+  font-size: 72px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 72px;
+  }
+}
+
 .page__header {
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px;
   color: map.get($theme-colors, "light");
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .section {
@@ -85,6 +112,6 @@ h1 {
   outline: 1px red dotted;
 }
 
-.playfair-display {
-  font-family: var(--font-playfair-display); // Uses the Playfair Display font
+.vidaloka {
+  font-family: var(--font-vidaloka);
 }

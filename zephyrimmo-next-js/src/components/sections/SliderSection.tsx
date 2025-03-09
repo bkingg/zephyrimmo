@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel, CarouselItem, CarouselCaption } from "react-bootstrap";
 
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
 interface SliderSectionProps {
   slides: Slide[];
 }
@@ -26,10 +21,10 @@ interface Slide {
 export default function SliderSection({ slides }: SliderSectionProps) {
   return (
     <section className="section__slider">
-    <Carousel interval={1000}>
+      <Carousel interval={1000}>
         {slides.map((slide: Slide) => {
           const slideImageUrl = slide.image
-            ? urlFor(slide.image).size(1200, 500).fit("crop").url()
+            ? urlFor(slide.image).size(1200, 700).fit("crop").url()
             : "";
           return (
             <CarouselItem key={slide._key}>
@@ -45,7 +40,7 @@ export default function SliderSection({ slides }: SliderSectionProps) {
                   <div
                     className={`carousel-caption__wrapper ${slide.captionPosition}`}
                   >
-                    {slide.title && <h3 className={playfairDisplay.className}>{slide.title}</h3>}
+                    {slide.title && <h3 className="vidaloka">{slide.title}</h3>}
                     {slide.description && <p>{slide.description}</p>}
                     {slide.ctaText && slide.ctaUrl && (
                       <Link className="btn btn-primary" href={slide.ctaUrl}>

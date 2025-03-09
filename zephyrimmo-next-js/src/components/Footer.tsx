@@ -3,12 +3,6 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 interface FooterMenu {
   _key: string;
@@ -100,7 +94,7 @@ export default async function Footer() {
             console.log("menu", menu);
             return (
               <div key={_key} className="col-sm-6 col-md-3 mb-3">
-                <h5 className={`${playfairDisplay.className} mb-3`}>{title}</h5>
+                <h5 className="footer__heading">{title}</h5>
                 <ul className="nav flex-column">
                   {menu.items?.map((item: MenuItem) => (
                     <li className="nav-item mb-2" key={item._key}>
@@ -123,7 +117,7 @@ export default async function Footer() {
           <div className="footer__newsletter col-sm-6 col-md-3 mb-3">
             <form>
               <div className="row d-flex align-items-center">
-                <h5 className={playfairDisplay.className}>Newsletter</h5>
+                <h5 className="footer__heading">Newsletter</h5>
                 <p>Résumé mensuel de nos activités</p>
                 <div className="d-flex flex-column flex-sm-row w-100 gap-2">
                   <label htmlFor="newsletter1" className="visually-hidden">
