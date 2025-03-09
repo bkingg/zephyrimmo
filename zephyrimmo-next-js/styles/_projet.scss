@@ -1,6 +1,12 @@
 .projet {
   position: relative;
   text-decoration: none;
+  &__title {
+    font-family: var(--font-vidaloka);
+    @include media-breakpoint-up(sm) {
+      font-size: 72px;
+    }
+  }
   .card {
     border: none;
     text-align: center;
@@ -38,6 +44,17 @@
     }
     .card-text {
       text-transform: uppercase;
+    }
+  }
+  &__property {
+    margin-bottom: 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-left: 20px;
+    &__title {
+    }
+    &__subtitle {
     }
   }
 }

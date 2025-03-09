@@ -70,7 +70,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         <div className="row">
           <div className="col-sm-6">
             <p>{projet.ville}</p>
-            <h1 className="vidaloka text-start">{projet.title}</h1>
+            <h1 className="projet__title text-start">{projet.title}</h1>
           </div>
           <div className="col-sm-6">
             <p>{projet.description}</p>
@@ -91,8 +91,15 @@ export default async function Projet({ params }: { params: { slug: string } }) {
                     />
                   )}
                   <div className="ps-2 flex-grow-1 text-truncate">
-                    <p className="text-truncate">{propriete.title}</p>
-                    <p className="text-truncate">{propriete.subtitle}</p>
+                    <p className="projet__property text-truncate">
+                      <span className="projet__property__title">
+                        {propriete.title}
+                      </span>
+                      <br />
+                      <span className="projet__property__subtitle">
+                        {propriete.subtitle}
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -104,7 +111,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
       <div className="section">
         <GallerySlider
           gallery={projet.gallery.map((image: ImageObject) => {
-            image.asset = `${urlFor(image.asset).size(500, 700).fit("crop").url()}`;
+            image.asset = `${urlFor(image.asset).size(1000, 1400).fit("crop").url()}`;
             return image;
           })}
         />
