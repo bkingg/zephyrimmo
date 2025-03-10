@@ -21,6 +21,17 @@
       margin-bottom: 35px;
     }
   }
+  &__address {
+    strong {
+      font-weight: normal;
+    }
+    p {
+      margin: 0;
+    }
+    a {
+      color: map.get($theme-colors, "light");
+    }
+  }
   &__newsletter {
   }
   &__social {

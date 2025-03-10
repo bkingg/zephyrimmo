@@ -1,6 +1,6 @@
 import urlFor from "@/lib/urlFor";
 import { sanityFetch } from "@/sanity/client";
-import { groq, SanityDocument } from "next-sanity";
+import { groq, PortableText, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -50,7 +50,16 @@ export default async function Footer() {
     facebook,
     twitter,
     instagram,
-    linkedin
+    linkedin,
+
+    contactPageTitle,
+    contactPageImage,
+    showMap,
+    contactPageSubTitle,
+    contactPageDescription,
+    phone,
+    address,
+    email,
   }`;
 
   const siteSettings = await sanityFetch<SanityDocument>({
@@ -89,6 +98,13 @@ export default async function Footer() {
             {siteSettings.footerDescription && (
               <p>{siteSettings.footerDescription}</p>
             )}
+          </div>
+          <div className="footer__address col-sm-6 col-md-3 mb-3">
+            <h5 className="footer__heading">{siteSettings.contactPageTitle}</h5>
+            <PortableText value={siteSettings.address} />
+            <br />
+            <PortableText value={siteSettings.email} />
+            <PortableText value={siteSettings.phone} />
           </div>
           {footerMenus?.map(({ _key, title, menu }: FooterMenu) => {
             console.log("menu", menu);
@@ -130,7 +146,7 @@ export default async function Footer() {
                     placeholder="Email address"
                   />
                   <button className="btn btn-primary" type="button">
-                    Souscrire
+                    <i className="bi bi-arrow-right"></i>
                   </button>
                 </div>
               </div>
