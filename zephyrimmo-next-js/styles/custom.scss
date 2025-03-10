@@ -18,15 +18,19 @@ $xl: 1200px;
 
 $border-radius: 0;
 
+$breadcrumb-divider: "\f285";
+
 @import "mixins";
 @import "bootstrap/scss/bootstrap.scss";
 
 // Partials
 @import "navigation";
 @import "footer";
+@import "page-header";
 @import "programmes";
 @import "article";
 @import "projet";
+@import "service";
 @import "contact";
 @import "loader";
 @import "forms";
@@ -40,7 +44,8 @@ $border-radius: 0;
 // }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-montserrat);
+  background-color: #fefffb;
 }
 
 h1,
@@ -49,8 +54,11 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-vidaloka);
   font-weight: 600;
   line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 h1 {
@@ -60,13 +68,22 @@ h1 {
 
 p {
   line-height: 1.86;
+  letter-spacing: 0.04em;
   @include media-breakpoint-up(sm) {
     font-size: 15px;
   }
 }
 
+p,
+span,
+ul,
+li,
+ol,
+a {
+  letter-spacing: 0.04em;
+}
+
 .page__title {
-  font-family: var(--font-vidaloka);
   font-size: 72px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -75,18 +92,6 @@ p {
 
   @include media-breakpoint-up(sm) {
     font-size: 72px;
-  }
-}
-
-.page__header {
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  color: map.get($theme-colors, "light");
-
-  @include media-breakpoint-up(sm) {
-    padding-top: 100px;
-    padding-bottom: 100px;
   }
 }
 
@@ -99,8 +104,16 @@ p {
 
 .btn {
   font-size: 14px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0 20px;
+  line-height: 46px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 .btn-primary {
+  border-color: map.get($theme-colors, "primary");
   color: map.get($theme-colors, "light");
 }
 
@@ -108,9 +121,9 @@ p {
   // border-radius: 1.75rem;
 }
 
-* {
-  outline: 1px red dotted;
-}
+// * {
+//   outline: 1px red dotted;
+// }
 
 .vidaloka {
   font-family: var(--font-vidaloka);

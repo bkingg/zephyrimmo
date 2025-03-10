@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import Tags from "@/components/Tags";
 import { ResolvingMetadata, Metadata } from "next";
 import page from "../page";
+import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
 
 let actualite: SanityDocument;
 let actualiteImageUrl: string;
@@ -44,6 +45,11 @@ export default async function Actualite({
     <>
       <PageHeader image={actualiteImageUrl}>
         <h1 className="page__title">{actualite.title}</h1>
+
+        <Breadcrumb className="page__header__breadcrumb">
+          <BreadcrumbItem href="/">Accueil</BreadcrumbItem>
+          <BreadcrumbItem active>{actualite.title}</BreadcrumbItem>
+        </Breadcrumb>
       </PageHeader>
       <div className="section container">
         <PortableText value={actualite.description} />

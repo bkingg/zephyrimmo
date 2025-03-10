@@ -37,9 +37,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             {/* <p className="card-text">
                       lorem ipsum dolor sit amet
                     </p> */}
-            <button className="btn btn-light">
-              <i className="bi bi-arrow-right"></i>
-            </button>
           </div>
         </div>
       </Link>

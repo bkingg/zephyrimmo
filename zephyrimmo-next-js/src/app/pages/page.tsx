@@ -4,6 +4,7 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
+import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
 
 const PAGES_QUERY = groq`*[
   _type == "page"
@@ -29,6 +30,11 @@ export default async function Pages() {
     <>
       <PageHeader>
         <h1 className="page__title">Pages</h1>
+
+        <Breadcrumb className="page__header__breadcrumb">
+          <BreadcrumbItem href="/">Accueil</BreadcrumbItem>
+          <BreadcrumbItem active>Pages</BreadcrumbItem>
+        </Breadcrumb>
       </PageHeader>
       <div className="section container">
         <div className="row">

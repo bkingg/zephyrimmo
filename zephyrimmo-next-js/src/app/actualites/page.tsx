@@ -3,6 +3,7 @@ import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
+import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
 
 const ACTUALITES_QUERY = groq`*[
   _type == "article"
@@ -19,6 +20,11 @@ export default async function Actualites() {
     <>
       <PageHeader>
         <h1 className="page__title">Actualités</h1>
+
+        <Breadcrumb className="page__header__breadcrumb">
+          <BreadcrumbItem href="/">Accueil</BreadcrumbItem>
+          <BreadcrumbItem active>Actualités</BreadcrumbItem>
+        </Breadcrumb>
       </PageHeader>
       <div className="section">
         <div className="container">

@@ -5,7 +5,6 @@
   select,
   .react-tel-input input,
   .react-tel-input .form-control {
-    border: none;
     padding: 10px 20px;
     text-overflow: ellipsis;
   }
@@ -16,8 +15,8 @@
     .form-control {
       padding-left: 54px;
       font-size: 1rem;
-      border: none;
       width: 100%;
+      border-width: 2px;
     }
     .flag-dropdown {
       &,
@@ -34,4 +33,18 @@
   .is-invalid .react-tel-input ~ .invalid-feedback {
     display: block;
   }
+}
+
+.form-control,
+input,
+input[type="text"],
+input[type="number"] {
+  font-size: 14px;
+  border-radius: 8px;
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 20px;
+  line-height: 46px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }

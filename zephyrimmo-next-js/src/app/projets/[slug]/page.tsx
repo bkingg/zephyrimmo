@@ -67,7 +67,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
   return (
     <>
       <div className="section projet container">
-        <div className="row">
+        <div className="row align-items-end">
           <div className="col-sm-6">
             <p>{projet.ville}</p>
             <h1 className="projet__title text-start">{projet.title}</h1>
