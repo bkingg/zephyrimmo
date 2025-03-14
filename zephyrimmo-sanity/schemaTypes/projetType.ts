@@ -20,14 +20,14 @@ export default defineType({
   ],
   fields: [
     defineField({
-      title: 'Ville',
-      name: 'ville',
+      title: 'Titre',
+      name: 'title',
       type: 'string',
       group: 'info'
     }),
     defineField({
-      title: 'Titre',
-      name: 'title',
+      title: 'Ville',
+      name: 'ville',
       type: 'string',
       group: 'info'
     }),
@@ -123,6 +123,46 @@ export default defineType({
       group: 'address',
       type: 'array',
       of: [{type: 'textWithLinksBlock'}],
+    }),
+    defineField({
+      title: 'Plans',
+      name: 'plans',
+      type: 'array',
+      group: 'images',
+      of: [
+        defineField({
+          name: 'plan',
+          type: 'object',
+          title: 'Plan',
+          fields: [
+            defineField({
+              name: 'title',
+              type: 'string',
+              title: 'Type de Plan',
+            }),
+            defineField({
+              name: 'image',
+              type: 'image',
+              title: 'Image',
+              options: {
+                hotspot: true,
+              },
+            }),
+          ]
+        }),
+      ],
+      options: {
+        sortable: true,
+      },
+    }),
+    defineField({
+      title: 'Brochure',
+      name: 'brochure',
+      type: 'file',
+      fields: [],
+      options: {
+          accept: 'application/pdf'
+      }
     }),
   ],
 });

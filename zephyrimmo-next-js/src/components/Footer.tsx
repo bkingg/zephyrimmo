@@ -77,7 +77,7 @@ export default async function Footer() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="footer py-5 text-light"
+      className="footer text-light"
     >
       <div className="container">
         <div className="row">

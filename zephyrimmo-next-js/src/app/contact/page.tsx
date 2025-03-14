@@ -17,7 +17,7 @@ export default async function Contact() {
   ][0]{
     contactPageTitle,
     contactPageImage,
-    showMap,
+    map,
     contactPageSubTitle,
     contactPageDescription,
     phone,
@@ -47,9 +47,9 @@ export default async function Contact() {
       </PageHeader>
 
       <div className="section container">
-        {siteSettings.showMap && (
+        {siteSettings.map && (
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15434.825079595117!2d-17.4611552!3d14.7291915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec10d1e41cbc6b5%3A0xa3eb1f5c16eb8af5!2sHepo%20Dakar!5e0!3m2!1sen!2ssn!4v1723955655123!5m2!1sen!2ssn"
+            src={siteSettings.map}
             width="100%"
             height="400"
             allowFullScreen={true}

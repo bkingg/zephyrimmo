@@ -9,11 +9,11 @@ import PhoneInput from "react-phone-input-2";
 import fr from "react-phone-input-2/lang/fr.json";
 import "react-phone-input-2/lib/bootstrap.css";
 
-interface RegisterToProgramFormProps {
-  programme: SanityDocument;
+interface ProjetInquiryFormProps {
+  projet: SanityDocument;
 }
 
-interface Programme {
+interface Projet {
   _id: string;
   title: string;
   slug: { current: string };
@@ -31,15 +31,11 @@ const schema = z.object({
   phoneNumber: z
     .string()
     .min(10, { message: "Veuillez saisir un numéro valide" }),
-  programme: z
-    .string()
-    .min(1, { message: "Veuillez sélectionner un programme" }),
+  projet: z.string().min(1, { message: "Veuillez sélectionner un projet" }),
   message: z.string().min(1, { message: "Veuillez saisir votre message" }),
 });
 
-export default function RegisterToProgramForm({
-  programme,
-}: RegisterToProgramFormProps) {
+export default function ProjetInquiryForm({ projet }: ProjetInquiryFormProps) {
   const {
     control,
     register,
@@ -82,7 +78,7 @@ export default function RegisterToProgramForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="needs-validation"
+      className="projet-inquiry__form needs-validation"
       noValidate
     >
       <div className="mb-3">
@@ -145,20 +141,20 @@ export default function RegisterToProgramForm({
       </div>
 
       <div className="mb-3">
-        <label htmlFor="programme" className="form-label visually-hidden">
-          Programme
+        <label htmlFor="projet" className="form-label visually-hidden">
+          Projet
         </label>
         <input
-          id="programme"
-          placeholder="Programme"
-          className={`form-control ${errors.programme ? "is-invalid" : ""}`}
-          {...register("programme")}
+          id="projet"
+          placeholder="Projet"
+          className={`form-control ${errors.projet ? "is-invalid" : ""}`}
+          {...register("projet")}
           required
-          value={programme.title}
-          readOnly
+          value={projet.title}
+          hidden
         />
-        {errors.programme && (
-          <p className="invalid-feedback">{errors.programme.message}</p>
+        {errors.projet && (
+          <p className="invalid-feedback">{errors.projet.message}</p>
         )}
       </div>
 

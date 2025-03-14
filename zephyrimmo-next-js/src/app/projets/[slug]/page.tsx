@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/sanity/client";
-import { groq, SanityDocument } from "next-sanity";
+import { groq, SanityDocument, SanityImageAssetDocument } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import urlFor from "@/lib/urlFor";
 import PageHeader from "@/components/PageHeader";
@@ -10,6 +10,10 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import Slider from "react-slick";
 import GallerySlider from "@/components/GallerySlider";
+import ProjetPlans from "@/components/ProjetPlans";
+import Link from "next/link";
+import DirectionsLink from "@/components/DirectionsLink";
+import ProjetInquiryForm from "@/components/ProjetInquiryForm";
 
 interface Propriete {
   _key: string;
@@ -25,6 +29,12 @@ interface ImageObject {
   _key: string;
   asset: string;
   alt: string;
+}
+
+interface PlanObject {
+  _key: string;
+  title: string;
+  image: SanityImageAssetDocument;
 }
 
 let projet: SanityDocument;
@@ -54,7 +64,16 @@ export default async function Projet({ params }: { params: { slug: string } }) {
       gallery[]{
         _key,
         asset
-      }
+      },
+      address,
+      map,
+      plans[]{
+        _key,
+        title,
+        image
+      },
+      brochure,
+      "brochureUrl": brochure.asset->url
     }`;
   projet = await sanityFetch<SanityDocument>({
     query: PROJET_QUERY,
@@ -65,8 +84,8 @@ export default async function Projet({ params }: { params: { slug: string } }) {
   projetImageUrl = urlFor(projet?.image).width(1000).url();
 
   return (
-    <>
-      <div className="section projet container">
+    <div className="projet">
+      <div className="section container">
         <div className="row align-items-end">
           <div className="col-sm-6">
             <p>{projet.ville}</p>
@@ -116,7 +135,68 @@ export default async function Projet({ params }: { params: { slug: string } }) {
           })}
         />
       </div>
-    </>
+
+      <div className="section container projet__map">
+        <div className="row align-items-center">
+          <div className="col-md-5">
+            {projet.map && (
+              <iframe
+                className="projet__map"
+                src={projet.map}
+                width="100%"
+                height="600"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            )}
+          </div>
+          <div className="col-md-7 projet__address">
+            <p className="projet__ville">{projet.ville}</p>
+            <h2>
+              <PortableText value={projet.address} />
+            </h2>
+            <DirectionsLink className="btn btn-primary" embedUrl={projet.map} />
+          </div>
+        </div>
+      </div>
+
+      <div className="section container projet__plans">
+        <ProjetPlans
+          plans={projet.plans?.map((plan: PlanObject) => {
+            const image = plan.image;
+            plan.image.asset = `${urlFor(image.asset).width(800).url()}`;
+            return plan;
+          })}
+        />
+      </div>
+
+      {projet.brochure && (
+        <div className="section container text-center">
+          <div className="d-flex justify-content-center">
+            <div className="projet__brochure">
+              <Link href={projet.brochureUrl + "?dl"}>
+                <i className="bi bi-file-earmark-pdf"></i>
+                <p>BROCHURE</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="section container projet__form">
+        <div className="row justify-content-center">
+          <div className="col-md-10 col-lg-6">
+            <p className="subtitle text-center">Renseignements</p>
+            <h2 className="text-center mb-3">
+              Si vous avez des questions, nous serons heureux de vous répondre
+              dans les plus brefs délais.
+            </h2>
+            <ProjetInquiryForm projet={projet} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

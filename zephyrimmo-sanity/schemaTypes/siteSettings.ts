@@ -62,9 +62,13 @@ export default defineType({
       }
     }),
     defineField({
-      title: 'Afficher la Carte',
-      name: 'showMap',
-      type: 'boolean',
+      title: 'Lien Google Maps Embed',
+      name: 'map',
+      type: 'string',
+      description: `Sur Google maps:
+                    Partagez la carte,
+                    Intégrer une carte,
+                    Copier et extraire la partie <iframe src="LIEN GOOGLE MAPS EMBED" ...>`,
       group: 'contact'
     }),
     defineField({
@@ -182,7 +186,6 @@ export default defineType({
   initialValue: {
     title: 'Paramètres du Site',
     contactPageTitle: 'Contact',
-    showMap: true,
   }
 });
   

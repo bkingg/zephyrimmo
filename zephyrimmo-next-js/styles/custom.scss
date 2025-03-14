@@ -69,9 +69,6 @@ h1 {
 p {
   line-height: 1.86;
   letter-spacing: 0.04em;
-  @include media-breakpoint-up(sm) {
-    font-size: 15px;
-  }
 }
 
 p,
@@ -79,12 +76,26 @@ span,
 ul,
 li,
 ol,
-a {
+a,
+button,
+input {
   letter-spacing: 0.04em;
 }
 
+.subtitle {
+  text-transform: uppercase;
+}
+
+.h1 {
+  font-size: 50px;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 72px;
+  }
+}
+
 .page__title {
-  font-size: 72px;
+  font-size: 50px;
   text-transform: uppercase;
   margin-bottom: 8px;
   line-height: 1.3;

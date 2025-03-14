@@ -7,6 +7,9 @@
       font-size: 72px;
     }
   }
+  &__ville {
+    text-transform: uppercase;
+  }
   .card {
     border: none;
     text-align: center;
@@ -59,6 +62,71 @@
     &__title {
     }
     &__subtitle {
+    }
+  }
+  &__plans__tab-content {
+    img {
+      position: relative !important;
+    }
+  }
+  #projet-plans {
+    border: none;
+    button {
+      border: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 14px;
+      color: map.get($theme-colors, "dark");
+      &:hover,
+      .active {
+        color: map.get($theme-colors, "primary");
+      }
+    }
+  }
+  &__brochure {
+    width: 200px;
+    height: 300px;
+    border: 2px dashed map.get($theme-colors, "primary");
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: map.get($theme-colors, "primary");
+    transition: all 0.4s ease-in;
+    cursor: pointer;
+    i {
+      font-size: 45px;
+    }
+    a {
+      text-decoration: none;
+      color: map.get($theme-colors, "primary");
+    }
+    &:hover {
+      color: map.get($theme-colors, "light");
+      background-color: map.get($theme-colors, "primary");
+      a {
+        color: map.get($theme-colors, "light");
+      }
+    }
+  }
+  &__map {
+    border-radius: 8px;
+  }
+  &__address {
+    p {
+      margin: 0;
+    }
+    @include media-breakpoint-up(sm) {
+      padding-left: 40px;
+    }
+  }
+
+  &__form {
+    border-radius: 8px;
+    background-color: #f9faf1;
+    @include media-breakpoint-up(sm) {
+      padding: 60px;
     }
   }
 }

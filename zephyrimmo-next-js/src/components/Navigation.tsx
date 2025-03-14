@@ -1,6 +1,5 @@
-import { sanityFetch } from "@/sanity/client";
-import { groq, SanityDocument } from "next-sanity";
-import Link from "next/link";
+"use client";
+
 import urlFor from "@/lib/urlFor";
 import Image from "next/image";
 import {
@@ -16,6 +15,10 @@ import {
   DropdownDivider,
 } from "react-bootstrap";
 
+interface NavigationProps {
+  siteSettings: any;
+}
+
 interface MenuItem {
   _key: string;
   title: string;
@@ -28,40 +31,8 @@ interface MenuItem {
   submenuItems: MenuItem[];
 }
 
-const MENU_ITEM_FRAGMENT = groq`
-  _key,
-  title,
-  linkType,
-  internalLink->{_id, _type, title, slug, image},
-  externalUrl,
-  submenuItems[]`;
-
-const SITE_SETTINGS_QUERY = groq`*[
-  _type == "siteSettings"
-][0]{
-  logo,
-  mainMenu->{
-    _id, 
-    title, 
-    handle,
-    items[]{
-      ${MENU_ITEM_FRAGMENT}{
-        ${MENU_ITEM_FRAGMENT}{
-          ${MENU_ITEM_FRAGMENT}
-        }
-      }
-    }
-  },
-}`;
-
-export default async function Navigation() {
-  const siteSettings = await sanityFetch<SanityDocument>({
-    query: SITE_SETTINGS_QUERY,
-  });
-
+export default function Navigation({ siteSettings }: NavigationProps) {
   const menu = siteSettings.mainMenu;
-
-  console.log(siteSettings);
 
   const menuShow = (items: MenuItem[]) => {
     return items.map((item: MenuItem) => {
@@ -97,7 +68,7 @@ export default async function Navigation() {
         <NavbarBrand href="/">
           <div className="header__logo-wrapper">
             <Image
-              src={urlFor(siteSettings.logo).width(200).url()}
+              src={siteSettings.logoUrl}
               fill
               alt="Hepo Dakar"
               title="Hepo Dakar"

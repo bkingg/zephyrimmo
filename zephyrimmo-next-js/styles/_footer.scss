@@ -1,14 +1,17 @@
 .footer {
-  background-color: map.get($theme-colors, "primary");
-  color: white;
+  color: map.get($theme-colors, "light");
+  padding-top: 100px;
+  @include media-breakpoint-up(sm) {
+    padding-top: 135px;
+  }
   i {
-    color: white;
+    color: map.get($theme-colors, "light");
   }
   .nav-item {
     margin-bottom: 30px;
   }
   a.nav-link {
-    color: white;
+    color: map.get($theme-colors, "light");
     &:hover {
       text-decoration: underline;
     }
