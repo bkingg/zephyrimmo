@@ -165,7 +165,7 @@
     }
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     .header__logo-wrapper {
       width: 216px;
       height: 200px;

@@ -57,6 +57,7 @@ export default function ProjetPlans({ plans }: ProjetPlansProps) {
           const image = plan.image;
           return (
             <Tab
+              key={plan._key}
               className="projet__plans__tab-content"
               eventKey={plan._key}
               title={plan.title}
