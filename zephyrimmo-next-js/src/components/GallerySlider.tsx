@@ -44,7 +44,7 @@ export default function GallerySlider({ gallery }: GallerySliderProps) {
   return (
     <Slider {...settings}>
       {gallery.map((image: ImageObject) => {
-        console.log("imge", image);
+        console.log("image", image);
         return (
           <div key={image._key}>
             <Image

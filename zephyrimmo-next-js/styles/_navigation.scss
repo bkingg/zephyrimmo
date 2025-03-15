@@ -136,6 +136,7 @@
       }
     }
     .dropdown-menu {
+      @include fade-in-up;
       padding: 0;
       margin: 0;
       background-color: map.get($theme-colors, "light");
