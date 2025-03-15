@@ -2,6 +2,7 @@
 
 import urlFor from "@/lib/urlFor";
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 import {
   Navbar,
   Container,
@@ -34,6 +35,33 @@ interface MenuItem {
 export default function Navigation({ siteSettings }: NavigationProps) {
   const menu = siteSettings.mainMenu;
 
+  const [isSticky, setIsSticky] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  const updateHeaderAndNextSibling = () => {
+    if (!headerRef.current) return;
+
+    const nextElement = headerRef.current
+      .nextElementSibling as HTMLElement | null;
+    const height = headerRef.current.offsetHeight;
+
+    if (nextElement) nextElement.style.marginTop = `${height}px`;
+
+    setIsSticky(window.scrollY > height);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", updateHeaderAndNextSibling);
+    window.addEventListener("resize", updateHeaderAndNextSibling);
+
+    updateHeaderAndNextSibling(); // Run on mount
+
+    return () => {
+      window.removeEventListener("scroll", updateHeaderAndNextSibling);
+      window.removeEventListener("resize", updateHeaderAndNextSibling);
+    };
+  }, []);
+
   const menuShow = (items: MenuItem[]) => {
     return items.map((item: MenuItem) => {
       if (item.submenuItems) {
@@ -63,7 +91,11 @@ export default function Navigation({ siteSettings }: NavigationProps) {
     });
   };
   return (
-    <Navbar expand="sm" className="header" variant="dark">
+    <Navbar
+      ref={headerRef}
+      expand="md"
+      className={`header ${isSticky ? "sticky" : ""}`}
+    >
       <Container>
         <NavbarBrand href="/">
           <div className="header__logo-wrapper">
