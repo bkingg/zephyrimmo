@@ -46,7 +46,7 @@ export default async function Contact() {
         </Breadcrumb>
       </PageHeader>
 
-      <div className="section container">
+      <div className="section section-animate container">
         {siteSettings.map && (
           <iframe
             src={siteSettings.map}
@@ -58,7 +58,7 @@ export default async function Contact() {
           ></iframe>
         )}
       </div>
-      <div className="section container">
+      <div className="section section-animate container">
         <div className="row">
           <div className="contact__address">
             {siteSettings.contactPageSubTitle && (
@@ -89,7 +89,7 @@ export default async function Contact() {
           </div>
         </div>
       </div>
-      <div className="section container">
+      <div className="section section-animate container">
         <div className="row justify-content-center">
           <div className="contact__form col-md-6">
             <ContactForm />

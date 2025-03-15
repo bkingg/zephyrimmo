@@ -44,7 +44,7 @@ export default async function Actualites() {
           <BreadcrumbItem active>Projets</BreadcrumbItem>
         </Breadcrumb>
       </PageHeader>
-      <div className="section">
+      <div className="section section-animate">
         <div className="container">
           <div className="row row-cols-1 row-cols-md-2">
             {projets.length === undefined && <p>Aucun Projet disponible.</p>}

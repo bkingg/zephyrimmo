@@ -20,7 +20,7 @@ interface Projet {
 export default async function ProjetsSection({ section }: ProjetsSectionProps) {
   const projets = section.projets;
   return (
-    <section className="section section__actualites">
+    <section className="section section-animate section__actualites">
       <div className="container">
         {section.title && (
           <h1 className="vidaloka text-center">{section.title}</h1>

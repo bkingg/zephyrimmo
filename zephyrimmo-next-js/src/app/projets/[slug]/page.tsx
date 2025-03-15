@@ -96,7 +96,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <div className="container section">
+      <div className="section container">
         <div className="row row-cols-2 row-cols-md-3 row-cols-md-5 justify-content-center">
           {projet.proprietes.map((propriete: Propriete) => {
             return (
@@ -127,7 +127,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      <div className="section">
+      <div className="section section-animate">
         <GallerySlider
           gallery={projet.gallery.map((image: ImageObject) => {
             image.asset = `${urlFor(image.asset).size(1000, 1400).fit("crop").url()}`;
@@ -136,7 +136,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         />
       </div>
 
-      <div className="section container projet__map">
+      <div className="section section-animate container projet__map">
         <div className="row align-items-center">
           <div className="col-md-5">
             {projet.map && (
@@ -172,7 +172,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
       </div>
 
       {projet.brochure && (
-        <div className="section container text-center">
+        <div className="section section-animate container text-center">
           <div className="d-flex justify-content-center">
             <div className="projet__brochure">
               <Link href={projet.brochureUrl + "?dl"}>
@@ -184,7 +184,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <div className="section container projet__form">
+      <div className="section section-animate container projet__form">
         <div className="row justify-content-center">
           <div className="col-md-10 col-lg-6">
             <p className="subtitle text-center">Renseignements</p>

@@ -20,7 +20,7 @@ export default function CallToActionSection({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="section text-center bg-primary text-light section__cta my-0"
+      className="section section-animate text-center bg-primary text-light section__cta my-0"
     >
       <div className="container">
         {section.title && <h1 className="vidaloka">{section.title}</h1>}

@@ -21,7 +21,7 @@ export default async function ServicesSection({
 }: ServicesSectionProps) {
   const services = section.services;
   return (
-    <section className="section section__actualites">
+    <section className="section section-animate section__actualites">
       <div className="container">
         {section.title && (
           <h1 className="vidaloka text-center">{section.title}</h1>

@@ -7,6 +7,8 @@ import urlFor from "@/lib/urlFor";
 import { notFound } from "next/navigation";
 import Sections from "@/components/sections/Sections";
 import { Metadata, ResolvingMetadata } from "next";
+import Breadcrumb from "react-bootstrap/esm/Breadcrumb";
+import { BreadcrumbItem } from "react-bootstrap";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const PAGE_QUERY = groq`
@@ -33,6 +35,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <PageHeader image={page.imageUrl}>
         {page.title && <h1 className="page__title">{page.title}</h1>}
+        <Breadcrumb className="page__header__breadcrumb">
+          <BreadcrumbItem href="/">Accueil</BreadcrumbItem>
+          <BreadcrumbItem active>Pages</BreadcrumbItem>
+          <BreadcrumbItem active>{page.title}</BreadcrumbItem>
+        </Breadcrumb>
         {page.description && <p>{page.description}</p>}
       </PageHeader>
       {page.sections && <Sections sections={page.sections} />}

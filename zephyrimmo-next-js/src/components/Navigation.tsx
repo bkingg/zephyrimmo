@@ -38,27 +38,18 @@ export default function Navigation({ siteSettings }: NavigationProps) {
   const [isSticky, setIsSticky] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
 
-  const updateHeaderAndNextSibling = () => {
+  const updateHeader = () => {
     if (!headerRef.current) return;
 
-    const nextElement = headerRef.current
-      .nextElementSibling as HTMLElement | null;
     const height = headerRef.current.offsetHeight;
-
-    if (nextElement) nextElement.style.marginTop = `${height}px`;
-
     setIsSticky(window.scrollY > height);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", updateHeaderAndNextSibling);
-    window.addEventListener("resize", updateHeaderAndNextSibling);
-
-    updateHeaderAndNextSibling(); // Run on mount
+    window.addEventListener("scroll", updateHeader);
 
     return () => {
-      window.removeEventListener("scroll", updateHeaderAndNextSibling);
-      window.removeEventListener("resize", updateHeaderAndNextSibling);
+      window.removeEventListener("scroll", updateHeader);
     };
   }, []);
 
