@@ -184,7 +184,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <div className="section section-animate container projet__form">
+      <div className="section section-animate container projet__form mb-5">
         <div className="row justify-content-center">
           <div className="col-md-10 col-lg-6">
             <p className="subtitle text-center">Renseignements</p>

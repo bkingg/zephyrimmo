@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity';
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'Services',
@@ -37,17 +37,19 @@ export default defineType({
       name: 'sections',
       type: 'array',
       of: [
-        { type: 'rich_text' },
-        { type: 'media_text' },
-        { type: 'slider' },
-        { type: 'faq' },
-        { type: 'logo_list' },
-        { type: 'call_to_action' },
-        { type: 'latest_articles' },
+        {type: 'rich_text'},
+        {type: 'media_text'},
+        {type: 'slider'},
+        {type: 'faq'},
+        {type: 'logo_list'},
+        {type: 'call_to_action'},
+        {type: 'latest_articles'},
+        {type: 'services'},
+        {type: 'projets'},
       ],
       options: {
         sortable: true,
       },
     }),
   ],
-});
+})

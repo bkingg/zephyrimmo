@@ -166,7 +166,7 @@ export default function ProjetInquiryForm({ projet }: ProjetInquiryFormProps) {
           id="message"
           className={`form-control ${errors.message ? "is-invalid" : ""}`}
           {...register("message")}
-          rows={8}
+          rows={4}
           placeholder="Message"
         />
         {errors.message && (

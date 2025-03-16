@@ -13,6 +13,11 @@
   .card {
     border: none;
     text-align: center;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+    &:hover {
+      opacity: 0.8;
+    }
     img {
       border-radius: 1.75rem;
     }
@@ -125,6 +130,7 @@
   &__form {
     border-radius: 8px;
     background-color: #f9faf1;
+
     @include media-breakpoint-up(sm) {
       padding: 60px;
     }

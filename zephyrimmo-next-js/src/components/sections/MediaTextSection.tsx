@@ -29,7 +29,7 @@ export default function MediaTextSection({ section }: MediaTextSectionProps) {
         <div
           className={`row align-items-center ${section.layout === "image_text" ? "" : "flex-row-reverse"}`}
         >
-          <div className="col-sm-6">
+          <div className="col-md-6">
             {section.image && (
               <Image
                 src={sectionImageUrl}
@@ -47,7 +47,7 @@ export default function MediaTextSection({ section }: MediaTextSectionProps) {
               />
             )}
           </div>
-          <div className="col-sm-6">
+          <div className="col-md-6">
             {section.title && <h3>{section.title}</h3>}
             {section.description && (
               <CustomPortableText content={section.description} />
