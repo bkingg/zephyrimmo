@@ -13,6 +13,7 @@ import GallerySlider from "@/components/GallerySlider";
 import Link from "next/link";
 import DirectionsLink from "@/components/DirectionsLink";
 import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
+import Sections from "@/components/sections/Sections";
 
 let service: SanityDocument;
 let serviceImageUrl: string;
@@ -34,7 +35,10 @@ export default async function Service({
       title, 
       image, 
       slug, 
-      description
+      description,
+      sections[]{
+        ...
+      }
     }`;
   service = await sanityFetch<SanityDocument>({
     query: SERVICE_QUERY,
@@ -60,14 +64,7 @@ export default async function Service({
         </Breadcrumb>
       </PageHeader>
       <div className="service">
-        <div className="section container">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Consectetur, nostrum nisi optio ut quidem error excepturi aliquid
-            quia, vero, voluptas suscipit repellat beatae quas deleniti impedit.
-            Expedita ex a ea.
-          </p>
-        </div>
+        {service.sections && <Sections sections={service.sections} />}
       </div>
     </>
   );

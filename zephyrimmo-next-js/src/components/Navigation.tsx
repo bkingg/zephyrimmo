@@ -1,6 +1,5 @@
 "use client";
 
-import urlFor from "@/lib/urlFor";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import {
@@ -12,8 +11,6 @@ import {
   NavLink,
   NavbarCollapse,
   NavbarToggle,
-  DropdownItem,
-  DropdownDivider,
 } from "react-bootstrap";
 
 interface NavigationProps {
