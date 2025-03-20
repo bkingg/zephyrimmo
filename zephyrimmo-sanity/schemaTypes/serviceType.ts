@@ -46,6 +46,7 @@ export default defineType({
         {type: 'latest_articles'},
         {type: 'services'},
         {type: 'projets'},
+        {type: 'temoignages'},
       ],
       options: {
         sortable: true,

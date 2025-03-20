@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Carousel, CarouselItem, CarouselCaption } from "react-bootstrap";
 
 interface SliderSectionProps {
-  slides: Slide[];
+  section: { slides: Slide[] };
 }
 
 interface Slide {
@@ -18,11 +18,11 @@ interface Slide {
   ctaUrl: string;
 }
 
-export default function SliderSection({ slides }: SliderSectionProps) {
+export default function SliderSection({ section }: SliderSectionProps) {
   return (
     <section className="section__slider">
       <Carousel interval={1000}>
-        {slides.map((slide: Slide) => {
+        {section.slides?.map((slide: Slide) => {
           const slideImageUrl = slide.image
             ? urlFor(slide.image).size(1200, 700).fit("crop").url()
             : "";

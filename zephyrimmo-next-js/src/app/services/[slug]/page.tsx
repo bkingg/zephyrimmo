@@ -37,7 +37,15 @@ export default async function Service({
       slug, 
       description,
       sections[]{
-        ...
+        ...,
+        "brochureUrl": brochure.asset->url,
+        services[]->{
+          _id, title, slug, image
+        },
+        projets[]->{
+          _id, title, ville, slug, image
+        },
+        temoignages,
       }
     }`;
   service = await sanityFetch<SanityDocument>({

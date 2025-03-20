@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity';
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   title: 'Pages',
@@ -37,19 +37,20 @@ export default defineType({
       name: 'sections',
       type: 'array',
       of: [
-        { type: 'rich_text' },
-        { type: 'media_text' },
-        { type: 'slider' },
-        { type: 'faq' },
-        { type: 'logo_list' },
-        { type: 'latest_articles' },
-        { type: 'call_to_action' },
-        { type: 'services' },
-        { type: 'projets' },
+        {type: 'rich_text'},
+        {type: 'media_text'},
+        {type: 'slider'},
+        {type: 'faq'},
+        {type: 'logo_list'},
+        {type: 'latest_articles'},
+        {type: 'call_to_action'},
+        {type: 'services'},
+        {type: 'projets'},
+        {type: 'temoignages'},
       ],
       options: {
         sortable: true,
       },
     }),
   ],
-});
+})

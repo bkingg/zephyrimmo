@@ -8,6 +8,7 @@ import ServicesSection from "./ServicesSection";
 import FAQSection from "./FAQSection";
 import MediaTextSection from "./MediaTextSection";
 import ProjetsSection from "./ProjetsSection";
+import TemoignagesSection from "./TemoignagesSection";
 
 interface SectionsProps {
   sections: Section[];
@@ -27,7 +28,7 @@ export default async function Sections({ sections }: SectionsProps) {
             <MediaTextSection key={section._key} section={section} />
           )) ||
           (section._type == "slider" && (
-            <SliderSection key={section._key} slides={section.slides} />
+            <SliderSection key={section._key} section={section} />
           )) ||
           (section._type == "faq" && (
             <FAQSection key={section._key} section={section} />
@@ -46,6 +47,9 @@ export default async function Sections({ sections }: SectionsProps) {
           )) ||
           (section._type == "projets" && (
             <ProjetsSection key={section._key} section={section} />
+          )) ||
+          (section._type == "temoignages" && (
+            <TemoignagesSection key={section._key} section={section} />
           ))
       )}
     </>

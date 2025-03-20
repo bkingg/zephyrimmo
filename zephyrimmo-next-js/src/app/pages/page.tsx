@@ -19,7 +19,11 @@ const PAGES_QUERY = groq`*[
     "brochureUrl": brochure.asset->url,
     services[]->{
       _id, title, slug, image
-    }
+    },
+    projets[]->{
+      _id, title, ville, slug, image
+    },
+    temoignages
   }
 }`;
 

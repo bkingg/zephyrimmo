@@ -29,7 +29,7 @@ export default async function ProjetsSection({ section }: ProjetsSectionProps) {
           <p className="text-center">{section.description}</p>
         )}
         <div className="row row-cols-1 row-cols-md-2 pt-4 d-flex justify-content-center">
-          {projets.map((projet: Projet) => {
+          {projets?.map((projet: Projet) => {
             projet.imageUrl = projet.image
               ? urlFor(projet.image).size(500, 500).fit("crop").url()
               : "";
