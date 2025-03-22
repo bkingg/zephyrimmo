@@ -9,6 +9,7 @@ import FAQSection from "./FAQSection";
 import MediaTextSection from "./MediaTextSection";
 import ProjetsSection from "./ProjetsSection";
 import TemoignagesSection from "./TemoignagesSection";
+import VideoSection from "./VideoSection";
 
 interface SectionsProps {
   sections: Section[];
@@ -23,6 +24,9 @@ export default async function Sections({ sections }: SectionsProps) {
         (section: any) =>
           (section._type == "rich_text" && (
             <RichTextSection key={section._key} section={section} />
+          )) ||
+          (section._type == "video" && (
+            <VideoSection key={section._key} section={section} />
           )) ||
           (section._type == "media_text" && (
             <MediaTextSection key={section._key} section={section} />

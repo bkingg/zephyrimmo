@@ -47,6 +47,7 @@ export default defineType({
         {type: 'services'},
         {type: 'projets'},
         {type: 'temoignages'},
+        {type: 'video'},
       ],
       options: {
         sortable: true,

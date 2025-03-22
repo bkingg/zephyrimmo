@@ -7,16 +7,16 @@ interface MediaTextSectionProps {
   section: any;
 }
 
-interface QuestionReponse {
-  _key: string;
-  question: string;
-  reponse: any;
-}
-
 export default function MediaTextSection({ section }: MediaTextSectionProps) {
   const sectionImageUrl = section.image
     ? urlFor(section.image).width(800).url()
     : "";
+  const getYouTubeID = (url: string) => {
+    const regExp =
+      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const match = url?.match(regExp);
+    return match ? match[1] : null;
+  };
   return (
     <section
       style={{
@@ -27,10 +27,10 @@ export default function MediaTextSection({ section }: MediaTextSectionProps) {
     >
       <div className="container">
         <div
-          className={`row align-items-center ${section.layout === "image_text" ? "" : "flex-row-reverse"}`}
+          className={`row align-items-center ${section.layout === "media_text" ? "" : "flex-row-reverse"}`}
         >
           <div className="col-md-6">
-            {section.image && (
+            {(section.mediaType == "image" && (
               <Image
                 src={sectionImageUrl}
                 width={0}
@@ -45,14 +45,24 @@ export default function MediaTextSection({ section }: MediaTextSectionProps) {
                 title={section.title}
                 className="img-fluid"
               />
-            )}
+            )) ||
+              (section.mediaType == "video" && section.video && (
+                <iframe
+                  width="100%"
+                  height="400"
+                  src={`https://www.youtube.com/embed/${getYouTubeID(section.video.url)}?modestbranding=1&fs=0&controls=0&rel=0`}
+                  title={section.video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ))}
           </div>
           <div className="col-md-6">
             {section.title && <h3>{section.title}</h3>}
             {section.description && (
               <CustomPortableText content={section.description} />
             )}
-            {section.ctaText && (
+            {section.showCta && (
               <Link
                 className={`btn ${section.layoutColor === "dark" ? "btn-secondary" : "btn-primary"}`}
                 href={

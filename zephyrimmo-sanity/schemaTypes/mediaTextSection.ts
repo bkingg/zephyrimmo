@@ -13,10 +13,6 @@ export default defineType({
       name: 'media',
       title: 'Média',
     },
-    {
-      name: 'cta',
-      title: "Appel a l'action",
-    },
   ],
   fields: [
     defineField({
@@ -25,8 +21,8 @@ export default defineType({
       title: 'Disposition',
       options: {
         list: [
-          {title: 'Image | Texte', value: 'image_text'},
-          {title: 'Texte | Image', value: 'text_image'},
+          {title: 'Media | Texte', value: 'media_text'},
+          {title: 'Texte | Media', value: 'text_media'},
         ],
         layout: 'radio', // Displays options as radio buttons
       },
@@ -59,16 +55,24 @@ export default defineType({
       group: 'text',
     }),
     defineField({
+      name: 'showCta',
+      type: 'boolean',
+      title: "Afficher le Boutton d'appel à l'action",
+      group: 'text',
+      initialValue: false,
+    }),
+    defineField({
       title: "Texte de l'appel à l'action",
       name: 'ctaText',
       type: 'string',
-      group: 'cta',
+      group: 'text',
+      hidden: ({parent}) => !parent?.showCta,
     }),
     defineField({
       name: 'linkType',
       type: 'string',
       title: 'Type de lien',
-      group: 'cta',
+      group: 'text',
       options: {
         list: [
           {title: 'URL Interne', value: 'internal'},
@@ -77,23 +81,38 @@ export default defineType({
         layout: 'radio', // Displays options as radio buttons
       },
       initialValue: 'internal',
+      hidden: ({parent}) => !parent?.showCta,
     }),
     defineField({
       name: 'internalLink',
       type: 'reference',
       title: 'Internal Page/Post',
-      group: 'cta',
+      group: 'text',
       description: 'Select an internal page or post',
       to: [{type: 'page'}, {type: 'service'}, {type: 'projet'}, {type: 'article'}],
-      hidden: ({parent}) => parent?.linkType !== 'internal',
+      hidden: ({parent}) => !parent?.showCta || parent?.linkType !== 'internal',
     }),
     defineField({
       name: 'externalUrl',
       type: 'url',
       title: 'External URL',
-      group: 'cta',
+      group: 'text',
       description: 'Enter an external URL',
-      hidden: ({parent}) => parent?.linkType !== 'external',
+      hidden: ({parent}) => !parent?.showCta || parent?.linkType !== 'external',
+    }),
+    defineField({
+      name: 'mediaType',
+      type: 'string',
+      title: 'Type de Media',
+      group: 'media',
+      options: {
+        list: [
+          {title: 'Image', value: 'image'},
+          {title: 'Video', value: 'video'},
+        ],
+        layout: 'radio', // Displays options as radio buttons
+      },
+      initialValue: 'image',
     }),
     defineField({
       title: 'Image',
@@ -103,6 +122,14 @@ export default defineType({
       options: {
         hotspot: true, // <-- Defaults to false
       },
+      hidden: ({parent}) => parent?.mediaType !== 'image',
+    }),
+    defineField({
+      name: 'video',
+      title: 'Video',
+      type: 'video',
+      group: 'media',
+      hidden: ({parent}) => parent?.mediaType !== 'video',
     }),
   ],
 })

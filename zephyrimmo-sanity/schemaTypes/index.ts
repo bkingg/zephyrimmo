@@ -1,4 +1,3 @@
-import siteSettings from './siteSettings'
 import menuItemType from './menuItemType'
 import menuType from './menuType'
 import pageType from './pageType'
@@ -6,6 +5,8 @@ import articleType from './articleType'
 import serviceType from './serviceType'
 import textWithLinksBlock from './textWithLinksBlock'
 import projetType from './projetType'
+import videoType from './videoType'
+import siteSettings from './siteSettings'
 
 // Sections
 import latestArticlesSection from './latestArticlesSection'
@@ -26,6 +27,7 @@ export const schemaTypes = [
   serviceType,
   projetType,
   articleType,
+  videoType,
   siteSettings,
 
   // Sections
