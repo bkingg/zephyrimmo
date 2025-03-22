@@ -58,6 +58,15 @@
       text-transform: uppercase;
     }
   }
+  .slick-slider {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    &.slick-initialized {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
   &__property {
     margin-bottom: 0;
     letter-spacing: 0.04em;

@@ -16,7 +16,7 @@ const AnimateOnScroll: React.FC = () => {
       const sectionHeight = section.clientHeight;
 
       // If the section is in the viewport (with some offset to trigger animation early)
-      if (scrollPosition >= sectionTop + sectionHeight / 3) {
+      if (scrollPosition >= sectionTop + sectionHeight / 4) {
         section.classList.add("visible"); // Add visible class for animation
       }
     });

@@ -36,6 +36,7 @@ $breadcrumb-divider: "\f285";
 @import "loader";
 @import "forms";
 @import "temoignages";
+@import "back-to-top";
 
 // Sections
 @import "sections/slider";
@@ -123,10 +124,6 @@ input {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-  &:last-of-type {
-    margin-bottom: 0;
-    padding-bottom: 0;
   }
 }
 

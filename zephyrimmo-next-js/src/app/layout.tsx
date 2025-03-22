@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import BackToTop from "@/components/BackToTop";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default async function RootLayout({
         <main>{children}</main>
         <Footer />
         <AnimateOnScroll />
+        <BackToTop />
       </body>
     </html>
   );
