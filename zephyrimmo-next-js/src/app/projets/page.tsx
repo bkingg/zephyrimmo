@@ -1,7 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
-import Link from "next/link";
 import ProjetCard from "@/components/ProjetCard";
 import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
 import urlFor from "@/lib/urlFor";
@@ -14,7 +13,6 @@ const SITE_SETTINGS_QUERY = groq`*[
 
 const PROJETS_QUERY = groq`*[
   _type == "projet"
-  && defined(slug.current)
 ] | order(_createdAt desc)
 {_id, title, ville, slug, image, description}`;
 
@@ -48,7 +46,7 @@ export default async function Actualites() {
         <div className="container">
           <div className="row row-cols-1 row-cols-md-2">
             {projets.length === undefined && <p>Aucun Projet disponible.</p>}
-            {projets.map((projet) => {
+            {projets?.map((projet) => {
               return <ProjetCard key={projet._id} projet={projet} />;
             })}
           </div>

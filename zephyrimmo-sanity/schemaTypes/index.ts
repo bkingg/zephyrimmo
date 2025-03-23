@@ -6,6 +6,8 @@ import serviceType from './serviceType'
 import textWithLinksBlock from './textWithLinksBlock'
 import projetType from './projetType'
 import videoType from './videoType'
+import categoryType from './categoryType'
+import productType from './productType'
 import siteSettings from './siteSettings'
 
 // Sections
@@ -28,6 +30,8 @@ export const schemaTypes = [
   projetType,
   articleType,
   videoType,
+  categoryType,
+  productType,
   siteSettings,
 
   // Sections

@@ -25,7 +25,7 @@ export default function VideoSection({ section }: VideoSectionProps) {
             width="100%"
             height="600"
             style={{ display: "block" }}
-            src={`https://www.youtube.com/embed/${getYouTubeID(section.url)}?modestbranding=1&fs=0&controls=0&rel=0&color=white&enablejsapi=1`}
+            src={`https://www.youtube.com/embed/${getYouTubeID(section.url)}?showinfo=0&modestbranding=1&fs=0&controls=0&rel=0&color=white&enablejsapi=1&o=0&widgetid=3`}
             title={section.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

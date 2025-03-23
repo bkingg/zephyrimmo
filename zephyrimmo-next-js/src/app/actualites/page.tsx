@@ -32,7 +32,7 @@ export default async function Actualites() {
             {actualites.length === undefined && (
               <p>Aucun Article disponible.</p>
             )}
-            {actualites.map((actualite) => {
+            {actualites?.map((actualite) => {
               return <ArticleCard key={actualite._id} actualite={actualite} />;
             })}
           </div>
