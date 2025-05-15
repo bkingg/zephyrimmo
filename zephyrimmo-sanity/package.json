@@ -20,10 +20,10 @@
     "@sanity/vision": "^3.52.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.52.2",
+    "sanity": "^3.88.3",
     "sanity-plugin-icon-picker": "^3.3.0",
     "sanity-plugin-tags": "^2.0.2",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^4.0.0",

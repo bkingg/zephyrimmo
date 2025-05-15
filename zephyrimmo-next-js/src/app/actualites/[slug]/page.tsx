@@ -8,7 +8,6 @@ import { fr } from "date-fns/locale";
 import { notFound } from "next/navigation";
 import Tags from "@/components/Tags";
 import { ResolvingMetadata, Metadata } from "next";
-import page from "../page";
 import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
 
 let actualite: SanityDocument;

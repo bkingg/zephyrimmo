@@ -1,6 +1,6 @@
 import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
-import ProjetCard from "../ProjetCard";
+import ProjetCard from "@/components/ProjetCard";
 import Link from "next/link";
 import urlFor from "@/lib/urlFor";
 

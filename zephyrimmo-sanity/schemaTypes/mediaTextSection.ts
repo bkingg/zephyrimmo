@@ -98,6 +98,7 @@ export default defineType({
       title: 'External URL',
       group: 'text',
       description: 'Enter an external URL',
+      validation: (Rule) => Rule.uri({allowRelative: true}),
       hidden: ({parent}) => !parent?.showCta || parent?.linkType !== 'external',
     }),
     defineField({

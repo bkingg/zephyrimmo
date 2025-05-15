@@ -1,6 +1,6 @@
 import { sanityFetch } from "@/sanity/client";
 import { groq, SanityDocument } from "next-sanity";
-import ArticleCard from "../ArticleCard";
+import ArticleCard from "@/components/ArticleCard";
 import Link from "next/link";
 
 interface LatestArticlesSectionProps {

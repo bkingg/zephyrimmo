@@ -1,7 +1,7 @@
 import urlFor from "@/lib/urlFor";
 import Image from "next/image";
 import Link from "next/link";
-import CustomPortableText from "../CustomPortableText";
+import CustomPortableText from "@/components/CustomPortableText";
 
 interface MediaTextSectionProps {
   section: any;

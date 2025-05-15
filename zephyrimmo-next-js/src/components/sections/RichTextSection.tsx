@@ -1,4 +1,4 @@
-import CustomPortableText from "../CustomPortableText";
+import CustomPortableText from "@/components/CustomPortableText";
 
 interface RichTextSectionProps {
   section: any;
