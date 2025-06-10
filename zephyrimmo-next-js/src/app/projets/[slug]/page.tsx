@@ -98,7 +98,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
       </div>
       <div className="section container">
         <div className="row row-cols-2 row-cols-md-3 row-cols-md-5 justify-content-center">
-          {projet.proprietes.map((propriete: Propriete) => {
+          {projet.proprietes?.map((propriete: Propriete) => {
             return (
               <div key={propriete._key} className="col">
                 <div className="d-flex">
@@ -129,7 +129,7 @@ export default async function Projet({ params }: { params: { slug: string } }) {
 
       <div className="section section-animate">
         <GallerySlider
-          gallery={projet.gallery.map((image: ImageObject) => {
+          gallery={projet.gallery?.map((image: ImageObject) => {
             image.asset = `${urlFor(image.asset).size(1000, 1400).fit("crop").url()}`;
             return image;
           })}
